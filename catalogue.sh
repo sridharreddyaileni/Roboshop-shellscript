@@ -66,7 +66,7 @@ VALIDATE $? "installing dependencies"
 
 cp /home/centos/Roboshop-shellscript/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
 
-VALIDATE $? "copying catalogue service file" &>> $LOGFILE
+VALIDATE $? "copying catalogue service file" 
 
 systemctl daemon-reload &>> $LOGFILE
 
@@ -88,7 +88,7 @@ dnf install mongodb-org -y &>> $LOGFILE
 
 VALIDATE $? "Installing mongodb client"
 
-mongo --host $MONGODB_HOST </app/schema/catalogue.js
+mongo --host $MONGODB_HOST </app/schema/catalogue.js &>> $LOGFILE
 
 VALIDATE $? "Loading catalogue data into mongodb"
 
