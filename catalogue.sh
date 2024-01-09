@@ -84,11 +84,11 @@ cp /home/centos/Roboshop-shellscript/mongo.repo /etc/yum.repos.d/mongo.repo &>> 
 
 VALIDATE $? "copying mongodb repo"
 
-dnf install mongodb-org -y &>> $LOGFILE
+dnf install mongodb-org-shell -y &>> $LOGFILE
 
 VALIDATE $? "Installing mongodb client"
 
-mongo --host $MONGODB_HOST </app/schema/catalogue.js &>> $LOGFILE
+mongo --host 172.31.44.166 </app/schema/catalogue.js &>> $LOGFILE
 
 VALIDATE $? "Loading catalogue data into mongodb"
 
