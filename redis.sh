@@ -9,7 +9,7 @@ N="\e[0m"
 
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
-exec &>$LOGFILE
+#exec &>$LOGFILE
 
 echo "script started and executing at $TIMESTAMP" 
 
