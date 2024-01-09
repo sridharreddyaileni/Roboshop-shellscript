@@ -30,7 +30,7 @@ else
     echo -e "$G You are the root user $N"
 fi
 
-cp mongo.repo /etc/yum.repos.d/mongodb1.repo &>> $LOGFILE
+cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE #here only text of mongo.repo file will be copied into /etc/yum.repos.d/mongo.repo(name could be any thing) folder
 
 VALIDATE $? "copied mongodb repo"
 
