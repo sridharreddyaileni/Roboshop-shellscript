@@ -42,11 +42,20 @@ dnf install nodejs -y &>> $LOGFILE
 
 VALIDATE $? "Installing Nodejs:18" 
 
-useradd roboshop &>> $LOGFILE
+id roboshop    #to avoid error while executing second time in creation of user
+if [ $? -ne 0 ]
+then
+    useradd roboshop
+    VALIDATE $? "roboshop user creation"
+else
+    echo -e "roboshop user already exist $Y SKIPPING $N"
+fi
+
+#useradd roboshop &>> $LOGFILE
 
 VALIDATE $? "creating roboshop user" 
 
-mkdir /app &>> $LOGFILE
+mkdir -p /app &>> $LOGFILE  #it will check and if dir avaialbe it will not create and if not available it will create
 
 VALIDATE $? "creating app directory" 
 
@@ -56,7 +65,7 @@ VALIDATE $? "Downloading catalogue application"
 
 cd /app &>> $LOGFILE
 
-unzip /tmp/catalogue.zip &>> $LOGFILE
+unzip -o /tmp/catalogue.zip &>> $LOGFILE #here -o is to overwrite if we run second time
 
 VALIDATE $? "unzipping catalogue" 
 
