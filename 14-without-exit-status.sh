@@ -8,7 +8,7 @@ touch example.txt
 
 echo "Before wrong command"
 
-lsfff
+lsfff    #here this script will stop/exit as given set -e
 
 echo "After wrong command"
 
