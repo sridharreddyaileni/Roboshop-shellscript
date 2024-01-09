@@ -30,11 +30,11 @@ else
     echo -e "$G You are the root user $N"
 fi
 
-cp mongodb.repo /etc/yum.repos.d/mongodb.repo &>> $LOGFILE
+cp mongodb.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 
 VALIDATE $? "copied mongodb repo"
 
-yum install mongod-org -y &>> $LOGFILE
+dnf install mongod-org -y &>> $LOGFILE
 
 VALIDATE $? "Installing mongodb"
 
