@@ -3,8 +3,8 @@
 AMI=ami-03265a0778a880afb
 SG_ID=sg-00ac01ec9a8c43ec9
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "web")
-#ZONE_ID=copy paste from route53 if records available
-#DOMAIN_NAME="copy paste from route53 if records available"
+# ZONE_ID=copy paste from route53 if records available
+# DOMAIN_NAME="copy paste from route53 if records available"
 
 for i in "${INSTANCES[@]}"
 do
