@@ -1,10 +1,10 @@
 #!/bin/bash
 
-AMI=ami-03265a0778a880afb
-SG_ID=sg-00ac01ec9a8c43ec9
+AMI=ami-0f3c7d07486cad139
+SG_ID=sg-0121ee11730ea5fb7
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "web")
 # ZONE_ID=copy paste from route53 if records available
-# DOMAIN_NAME="copy paste from route53 if records available"
+# DOMAIN_NAME="copy paste from route53 if records availabl"
 
 for i in "${INSTANCES[@]}"
 do
@@ -16,7 +16,7 @@ do
         INSTANCE_TYPE="t2.micro"
     fi
 
-    IP_ADDRESS=$(aws ec2 run-instances --image-id ami-03265a0778a880afb --instance-type $INSTANCE_TYPE --security-group-ids sg-00ac01ec9a8c43ec9 --tag-specifications "ResourceType=instance, Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].PrivateIpAddress' --output text)
+    IP_ADDRESS=$(aws ec2 run-instances --image-id ami-0f3c7d07486cad139 --instance-type $INSTANCE_TYPE --security-group-ids sg-0121ee11730ea5fb7 --tag-specifications "ResourceType=instance, Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].PrivateIpAddress' --output text)
     echo "$i: $IP_ADDRESS"
 
     #create R53 record, make sure you delete exisiting records in route53
